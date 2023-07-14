@@ -16,14 +16,14 @@ const User = require('../models/Users');
 router.post('/register', async (req, res) => {
     try {
         let {username, email, password} = req.body;
-        console.log(req.body);
+        
         
 
         // validate
 
         if (!username || !email || !password)
             return res.status(400).json({msg: "Not all fields have been entered."});
-        if (password.length < 6)
+        if (password.length < 3)
             return res.status(400).json({msg: "The password needs to be at least 6 characters long."});
 
         const existingUser = await User.findOne({email: email});
