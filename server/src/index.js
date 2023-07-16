@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 const usersRouter = require('./routes/users');
+const recipesRouter = require('./routes/recipes');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(cors());
 
 // Routes
 app.use('/auth', usersRouter);
+app.use('/recipes', recipesRouter);
 
 // Start the server
 app.listen(3001, () => {
